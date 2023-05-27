@@ -3,6 +3,7 @@ from django.utils import timezone
 
 from jdatetime import datetime as jdatetime_datetime
 
+
 class VillaOwner(models.Model):
     first_name = models.CharField(max_length=32, null=False, blank=False, verbose_name="نام")
     last_name = models.CharField(max_length=64, null=False, blank=False, verbose_name="نام خانوادگی")
