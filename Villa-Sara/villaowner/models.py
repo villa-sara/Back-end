@@ -11,9 +11,8 @@ class VillaOwner(models.Model):
 
     phone_number = models.CharField(max_length=15, null=False, blank=False, unique=True, verbose_name="تلفن همراه")
 
-    created_at = models.DateTimeField(max_length=31, null=True, blank=True, auto_now = True, verbose_name="زمان ثبت")
-    updated_at = models.DateTimeField(max_length=31, null=True, blank=True, auto_now_add=True,
-                                      verbose_name="زمان آخرین به روزرسانی")
+    created_at = models.DateTimeField(auto_now = True, null=True, blank=True, verbose_name="زمان ثبت")
+    updated_at = models.DateTimeField(auto_now_add=True, null=True, blank=True, verbose_name="زمان آخرین به روزرسانی")
 
     class Meta:
         verbose_name_plural = "مالکان ویلاها"
