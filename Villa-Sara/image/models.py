@@ -6,7 +6,7 @@ from villaowner.models import VillaOwner
 
 class Image(models.Model):
     image = models.TextField(blank=True, verbose_name="تصویر")
-    villa_owner = models.ForeignKey(VillaOwner, on_delete=models.CASCADE, related_name='identity_certification_image',
+    villa_owner = models.OneToOneField(VillaOwner, on_delete=models.CASCADE, related_name='identity_certification_image',
                                     verbose_name="مالک ویلا")
 
     created_at = models.DateTimeField(auto_now=True, null=True, blank=True, verbose_name="زمان ثبت")
