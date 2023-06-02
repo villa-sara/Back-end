@@ -6,7 +6,7 @@ from .models import VillaOwner
 from .serializers import VillaOwnerSerializer
 
 
-class BusinessOwnerViewSet(ModelViewSet):
+class VillaOwnerViewSet(ModelViewSet):
     queryset = VillaOwner.objects.all()
     serializer_class = VillaOwnerSerializer
     filter_backends = [SearchFilter]
