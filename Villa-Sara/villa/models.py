@@ -1,5 +1,5 @@
 from django.db import models
-from villaowner.models import VillaOwner
+from landowner.models import VillaOwner
 class Villa(models.Model):
     villa_owner = models.ForeignKey(VillaOwner, on_delete=models.CASCADE, null= False, blank= False, verbose_name="مالک ویلا")
 

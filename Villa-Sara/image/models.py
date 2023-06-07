@@ -1,7 +1,7 @@
 from django.db import models
 from django.utils import timezone
 
-from villaowner.models import VillaOwner
+from landowner.models import VillaOwner
 from villa.models import Villa
 
 class Image(models.Model):
