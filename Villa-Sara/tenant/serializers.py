@@ -3,7 +3,7 @@ from rest_framework import serializers
 from .models import Tenant
 
 
-class TenantOwnerSerializer(serializers.ModelSerializer):
+class TenantSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Tenant
