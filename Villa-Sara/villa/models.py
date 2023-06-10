@@ -1,6 +1,10 @@
 from django.db import models
 from landowner.models import VillaOwner
 from Utilities.constants import STATE_CHOICES
+from dynamic_filenames import FilePattern
+
+image_upload_pattern = FilePattern(filename_pattern='images/{model_name:.30}/{uuid:base32}{ext}')
+video_upload_pattern = FilePattern(filename_pattern='videos/{model_name:.30}/{uuid:base32}{ext}')
 
 
 class Villa(models.Model):
@@ -22,3 +26,16 @@ class Villa(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class VillaMedia(models.Model):
+    villa = models.ForeignKey(Villa, on_delete=models.CASCADE, null=False, blank=False, verbose_name='ملک')
+    villa_image = models.ImageField(upload_to='%s.png' % Villa.pk, blank=True, verbose_name='تصویر ملک')
+    villa_video = models.FileField(upload_to=video_upload_pattern, blank=True, verbose_name='فیلم ملک')
+
+    class Meta:
+        verbose_name = 'رسانه'
+        verbose_name_plural = 'رسانه‌ها'
+
+    def __str__(self):
+        return self.villa

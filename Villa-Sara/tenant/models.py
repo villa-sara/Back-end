@@ -11,6 +11,7 @@ class Tenant(AbstractUser):
     phone_number = models.CharField(max_length=15, null=False, blank=False, unique=True, verbose_name="تلفن همراه")
     created_at = models.DateTimeField(auto_now=True, null=True, blank=True, verbose_name="زمان ثبت")
     updated_at = models.DateTimeField(auto_now_add=True, null=True, blank=True, verbose_name="زمان آخرین به روزرسانی")
+    profile_image = models.ImageField(upload_to='images/profile')
 
     class Meta:
         verbose_name = 'مشتری'

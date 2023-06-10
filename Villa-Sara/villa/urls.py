@@ -1,10 +1,9 @@
 from rest_framework_nested import routers
-from .views import VillaViewSet
-from django.urls import path
-from django.contrib import admin
+from .views import VillaViewSet, VillaMediaViewSet
 
 router = routers.DefaultRouter()
 router.register('villa', VillaViewSet, 'villa')
+router.register('villamedia', VillaMediaViewSet, 'villamedia')
 urlpatterns = [
 
 ]
