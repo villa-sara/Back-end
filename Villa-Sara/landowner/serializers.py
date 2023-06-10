@@ -1,11 +1,10 @@
 from rest_framework import serializers
+from .models import LandOwner
 
-from .models import VillaOwner
 
-
-class VillaOwnerSerializer(serializers.ModelSerializer):
+class LandOwnerSerializer(serializers.ModelSerializer):
 
     class Meta:
-        model = VillaOwner
+        model = LandOwner
         fields = '__all__'
         read_only_fields = ('id', 'created_at')

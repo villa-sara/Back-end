@@ -1,10 +1,9 @@
 from rest_framework.viewsets import ModelViewSet
+from .models import LandOwner
+from .serializers import LandOwnerSerializer
 
-from .models import VillaOwner
-from .serializers import VillaOwnerSerializer
 
-
-class VillaOwnerViewSet(ModelViewSet):
-    queryset = VillaOwner.objects.all()
-    serializer_class = VillaOwnerSerializer
+class LandOwnerViewSet(ModelViewSet):
+    queryset = LandOwner.objects.all()
+    serializer_class = LandOwnerSerializer
     ordering_fields = '__all__'

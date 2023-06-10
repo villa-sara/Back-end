@@ -1,5 +1,5 @@
 from django.db import models
-from landowner.models import VillaOwner
+from landowner.models import LandOwner
 from Utilities.constants import STATE_CHOICES
 from dynamic_filenames import FilePattern
 
@@ -9,7 +9,7 @@ video_upload_pattern = FilePattern(filename_pattern='videos/{model_name:.30}/{uu
 
 class Villa(models.Model):
     name = models.CharField(max_length=30, null=False, blank=False, verbose_name='نام ملک')
-    villa_owner = models.ForeignKey(VillaOwner, on_delete=models.CASCADE,
+    villa_owner = models.ForeignKey(LandOwner, on_delete=models.CASCADE,
                                     null=False, blank=False, verbose_name="صاحب ملک")
     state = models.PositiveIntegerField(choices=STATE_CHOICES, verbose_name="استان")
     city = models.CharField(max_length=32, null=False, blank=False, verbose_name="شهر")
