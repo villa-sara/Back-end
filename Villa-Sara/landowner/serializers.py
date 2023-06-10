@@ -2,6 +2,7 @@ from rest_framework import serializers
 
 from .models import VillaOwner
 
+
 class VillaOwnerSerializer(serializers.ModelSerializer):
 
     class Meta:
