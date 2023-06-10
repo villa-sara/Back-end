@@ -1,5 +1,4 @@
 from rest_framework.viewsets import ModelViewSet
-
 from .models import Villa
 from .serializers import VillaSerializer
 

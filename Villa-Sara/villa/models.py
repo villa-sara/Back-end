@@ -1,17 +1,24 @@
 from django.db import models
-from .. villaowner.models import VillaOwner
-from .. utilities.constants import STATE_CHOICES
+from landowner.models import VillaOwner
+from Utilities.constants import STATE_CHOICES
 
 
 class Villa(models.Model):
-    villa_owner = models.ForeignKey(VillaOwner, on_delete=models.CASCADE, null= False, blank= False, verbose_name="مالک ویلا")
-
+    name = models.CharField(max_length=30, null=False, blank=False, verbose_name='نام ملک')
+    villa_owner = models.ForeignKey(VillaOwner, on_delete=models.CASCADE,
+                                    null=False, blank=False, verbose_name="صاحب ملک")
     state = models.PositiveIntegerField(choices=STATE_CHOICES, verbose_name="استان")
     city = models.CharField(max_length=32, null=False, blank=False, verbose_name="شهر")
     region = models.CharField(max_length=32, null=False, blank=False, verbose_name="منطقه")
     address = models.CharField(max_length=255, null=False, blank=False, verbose_name="آدرس")
     description = models.TextField(max_length=1024, null=False, blank=False, verbose_name="توضیحات")
     price_per_night = models.DecimalField(max_digits=10, decimal_places=0, verbose_name="قیمت به ازای هرشب")
-
-    created_at = models.DateTimeField(auto_now = True, null=True, blank=True, verbose_name="زمان ثبت")
+    created_at = models.DateTimeField(auto_now=True, null=True, blank=True, verbose_name="زمان ثبت")
     updated_at = models.DateTimeField(auto_now_add=True, null=True, blank=True, verbose_name="زمان آخرین به روزرسانی")
+
+    class Meta:
+        verbose_name = 'ملک'
+        verbose_name_plural = 'املاک'
+
+    def __str__(self):
+        return self.name
