@@ -3,7 +3,7 @@ from .models import RentalPeriod
 from .serializers import RentalPeriodSerializer
 
 
-class VillaViewSet(ModelViewSet):
+class RentalPeriodViewSet(ModelViewSet):
     queryset = RentalPeriod.objects.all()
     serializer_class = RentalPeriodSerializer
     ordering_fields = '__all__'
