@@ -44,8 +44,7 @@ INSTALLED_APPS = [
 
     'landowner',
     'villa',
-    'tenant',
-    'image'
+    'tenant'
 ]
 
 MIDDLEWARE = [
