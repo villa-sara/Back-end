@@ -1,10 +1,10 @@
 from rest_framework import serializers
+from .models import LandOwner
 
-from .models import Image
 
+class LandOwnerSerializer(serializers.ModelSerializer):
 
-class ImageSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Image
+        model = LandOwner
         fields = '__all__'
         read_only_fields = ('id', 'created_at')
