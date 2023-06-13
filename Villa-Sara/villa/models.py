@@ -1,5 +1,6 @@
 from django.db import models
 from landowner.models import LandOwner
+from contract.models import Contract
 from Utilities.constants import STATE_CHOICES
 from dynamic_filenames import FilePattern
 
@@ -38,5 +39,20 @@ class VillaMedia(models.Model):
         verbose_name = 'رسانه'
         verbose_name_plural = 'رسانه‌ها'
 
+    def __str__(self):
+        return self.villa.name
+
+
+class RentalPeriod(models.Model):
+    start_date = models.DateField(null=False, blank=False, verbose_name="تاریخ شروع اجاره")
+    end_date = models.DateField(null=False, blank=False, verbose_name="تاریخ پایان اجاره")
+
+    villa = models.ForeignKey(Villa, on_delete=models.CASCADE, null=False, blank=False, verbose_name="ملک")
+
+    contract = models.ForeignKey(Contract, on_delete=models.CASCADE, null=False, blank=False, verbose_name="قرارداد")
+
+    class Meta:
+        verbose_name = 'بازه زمانی اجاره'
+        verbose_name_plural = 'بازه های زمانی اجاره'
     def __str__(self):
         return self.villa.name
