@@ -30,12 +30,13 @@ class Villa(models.Model):
 
 class VillaMedia(models.Model):
     villa = models.ForeignKey(Villa, on_delete=models.CASCADE, null=False, blank=False, verbose_name='ملک')
-    villa_image = models.ImageField(upload_to='%s.png' % Villa.pk, blank=True, verbose_name='تصویر ملک')
+    villa_image = models.ImageField(upload_to=image_upload_pattern, blank=True, verbose_name='تصویر ملک')
     villa_video = models.FileField(upload_to=video_upload_pattern, blank=True, verbose_name='فیلم ملک')
+    created_at = models.DateTimeField(auto_now=True, null=True, blank=True, verbose_name="زمان ثبت")
 
     class Meta:
         verbose_name = 'رسانه'
         verbose_name_plural = 'رسانه‌ها'
 
     def __str__(self):
-        return self.villa
+        return self.villa.name
