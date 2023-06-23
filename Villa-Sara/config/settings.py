@@ -42,6 +42,9 @@ INSTALLED_APPS = [
     'landowner',
     'villa',
     'tenant',
+    'contract',
+    'villa',
+    'core,'
 
     'rest_framework',
     'rest_framework_swagger',
