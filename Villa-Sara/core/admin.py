@@ -1,9 +1,15 @@
 from django.contrib import admin
-from .models import Tenant
+from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
+from .models import User
 
-
-class TenantAdmin(admin.ModelAdmin):
-    list_display = ['username', 'email', 'phone_number', 'first_name', 'last_name', 'created_at']
-
-
-admin.site.register(Tenant, TenantAdmin)
+@admin.register(User)
+class UserAdmin(BaseUserAdmin):
+    add_fieldsets = (
+        (
+            None,
+            {
+                "classes": ("wide",),
+                "fields": ("username", "password1", "password2", "phone_number", "first_name", "last_name"),
+            },
+        ),
+    )
