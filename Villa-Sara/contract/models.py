@@ -13,7 +13,7 @@ class Contract(models.Model):
 
     rental_period = models.ForeignKey(RentalPeriod, on_delete=models.CASCADE,
                                     null=False, blank=False, verbose_name="بازه زمانی")
-    total_price = models.DecimalField(max_digits=16, decimal_places=4, verbose_name="قیمت به ازای هرشب")
+    total_price = models.DecimalField(max_digits=16, decimal_places=4, verbose_name="قیمت کل")
 
     is_confirmed_by_landowner = models.BooleanField(default=False)
     is_confirmed_by_tenant = models.BooleanField(default=False)
