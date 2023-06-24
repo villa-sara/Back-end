@@ -20,6 +20,7 @@ class LandOwner(models.Model):
     created_at = models.DateTimeField(auto_now=True, null=True, blank=True, verbose_name="زمان ثبت")
     updated_at = models.DateTimeField(auto_now_add=True, null=True, blank=True, verbose_name="زمان آخرین به روزرسانی")
     profile_image = models.ImageField(upload_to=profile_image_pattern, blank=True)
+    profile_image_txt = models.TextField(blank=True, verbose_name="تصویر(اختیاری)")
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['email', 'username', 'password']

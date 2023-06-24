@@ -31,6 +31,7 @@ class Villa(models.Model):
 class VillaMedia(models.Model):
     villa = models.ForeignKey(Villa, on_delete=models.CASCADE, null=False, blank=False, verbose_name='ملک')
     villa_image = models.ImageField(upload_to=image_upload_pattern, blank=True, verbose_name='تصویر ملک')
+    villa_image_txt = models.TextField(blank=True, verbose_name="تصویر ملک")
     villa_video = models.FileField(upload_to=video_upload_pattern, blank=True, verbose_name='فیلم ملک')
 
     start_date = models.DateField(null=False, blank=False, verbose_name="تاریخ شروع اجاره")
