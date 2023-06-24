@@ -1,5 +1,5 @@
 from django.db import models
-from villa.models import Villa
+from villa.models import Villa, RentalPeriod
 from landowner.models import LandOwner
 from tenant.models import Tenant
 
