@@ -6,7 +6,6 @@ from django.conf import settings
 router = routers.DefaultRouter()
 router.register('villa', VillaViewSet, 'villa')
 router.register('villamedia', VillaMediaViewSet, 'villamedia')
-router.register('rentalperiod', VillaViewSet, 'rentalperiod')
 urlpatterns = [
 
 ]

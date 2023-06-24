@@ -4,7 +4,7 @@ from rest_framework import serializers
 
 
 class UserCreateSerializer(BaseUserCreateSerializer):
-    phone_number = serializers.CharField(max_length=15, null=False, blank=False, unique=True, verbose_name="تلفن همراه")
+    phone_number = serializers.CharField(max_length=15)
 
     class Meta(BaseUserCreateSerializer.Meta):
         fields = ['id', 'username', 'password', 'first_name', 'last_name', 'phone_number']

@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Villa, VillaMedia, RentalPeriod
+from .models import Villa, VillaMedia
 
 
 class VillaSerializer(serializers.ModelSerializer):
@@ -16,9 +16,9 @@ class VillaMediaSerializer(serializers.ModelSerializer):
         read_only_fields = ('id', 'created_at')
         
 
-class RentalPeriodSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = RentalPeriod
-        fields = '__all__'
-        read_only_fields = ('id')
-        
+# class RentalPeriodSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = RentalPeriod
+#         fields = '__all__'
+#         read_only_fields = ('id')
+#
