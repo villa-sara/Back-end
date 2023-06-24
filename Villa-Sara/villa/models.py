@@ -17,6 +17,10 @@ class Villa(models.Model):
     address = models.CharField(max_length=255, null=False, blank=False, verbose_name="آدرس")
     description = models.TextField(max_length=1024, null=False, blank=False, verbose_name="توضیحات")
     price_per_night = models.DecimalField(max_digits=10, decimal_places=0, verbose_name="قیمت به ازای هرشب")
+
+    start_date = models.DateField(null=False, blank=False, verbose_name="تاریخ شروع اجاره")
+    end_date = models.DateField(null=False, blank=False, verbose_name="تاریخ پایان اجاره")
+
     created_at = models.DateTimeField(auto_now=True, null=True, blank=True, verbose_name="زمان ثبت")
     updated_at = models.DateTimeField(auto_now_add=True, null=True, blank=True, verbose_name="زمان آخرین به روزرسانی")
 
@@ -33,9 +37,6 @@ class VillaMedia(models.Model):
     villa_image = models.ImageField(upload_to=image_upload_pattern, blank=True, verbose_name='تصویر ملک')
     villa_image_txt = models.TextField(blank=True, verbose_name="تصویر ملک")
     villa_video = models.FileField(upload_to=video_upload_pattern, blank=True, verbose_name='فیلم ملک')
-
-    start_date = models.DateField(null=False, blank=False, verbose_name="تاریخ شروع اجاره")
-    end_date = models.DateField(null=False, blank=False, verbose_name="تاریخ پایان اجاره")
 
     created_at = models.DateTimeField(auto_now=True, null=True, blank=True, verbose_name="زمان ثبت")
 
