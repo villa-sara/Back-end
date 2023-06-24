@@ -1,8 +1,7 @@
 from django.db import models
-from villa import Villa
+from villa.models import Villa
 from landowner.models import LandOwner
 from tenant.models import Tenant
-from rentalperiod.models import RentalPeriod
 
 
 class Contract(models.Model):
