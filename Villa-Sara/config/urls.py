@@ -14,7 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from rest_framework_swagger.views import get_swagger_view
 
 schema_view = get_swagger_view(title='Pastebin API')
@@ -22,4 +22,8 @@ schema_view = get_swagger_view(title='Pastebin API')
 urlpatterns = [
     path("admin/", admin.site.urls),
     path('swagger', schema_view),
+    path('api/', include('villa.urls')),
+    path('api/', include('tenant.urls')),
+    path('api/', include('landowner.urls')),
+    path('api/', include('contract.urls')),
 ]
