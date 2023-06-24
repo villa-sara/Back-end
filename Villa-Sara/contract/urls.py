@@ -1,8 +1,8 @@
 from rest_framework_nested import routers
-from .views import VillaViewSet, VillaMediaViewSet
+from .views import ContractViewSet
 
 router = routers.DefaultRouter()
-router.register('contract', VillaViewSet, 'contract')
+router.register('contract', ContractViewSet, 'contract')
 urlpatterns = [
 
 ]

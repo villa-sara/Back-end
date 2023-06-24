@@ -1,5 +1,4 @@
 from django.db import models
-from django.contrib.auth.models import AbstractUser
 from dynamic_filenames import FilePattern
 profile_image_pattern = FilePattern(filename_pattern='images/{username:.30}{ext}')
 
