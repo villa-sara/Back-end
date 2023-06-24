@@ -3,6 +3,7 @@ from .models import Tenant
 
 
 class TenantSerializer(serializers.ModelSerializer):
+    user_id = serializers.IntegerField()
 
     class Meta:
         model = Tenant
