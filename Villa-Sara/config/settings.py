@@ -45,8 +45,7 @@ INSTALLED_APPS = [
     'tenant',
     'contract',
 
-    'villa',
-    'core,'
+    'core',
 
     'rest_framework',
     'rest_framework_swagger',
