@@ -3,6 +3,7 @@ from .models import LandOwner
 
 
 class LandOwnerSerializer(serializers.ModelSerializer):
+    user_id = serializers.IntegerField()
 
     class Meta:
         model = LandOwner
