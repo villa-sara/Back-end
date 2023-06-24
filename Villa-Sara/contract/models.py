@@ -10,6 +10,7 @@ class Contract(models.Model):
                                     null=False, blank=False, verbose_name="صاحب ملک")
     tenant = models.ForeignKey(Tenant, on_delete=models.CASCADE,
                                     null=False, blank=False, verbose_name="میهمان")
+    landowner_phone_number = models.CharField(max_length=15, null=False, blank=False, unique=True, verbose_name="تلفن همراه مالک")
 
     # rental_period = models.ForeignKey(RentalPeriod, on_delete=models.CASCADE,
     #                                 null=False, blank=False, verbose_name="بازه زمانی")
