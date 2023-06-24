@@ -7,11 +7,15 @@ image_upload_pattern = FilePattern(filename_pattern='images/{model_name:.30}/{uu
 video_upload_pattern = FilePattern(filename_pattern='videos/{model_name:.30}/{uuid:base32}{ext}')
 
 
+class State(models.Model):
+    state_name = models.PositiveIntegerField(choices=STATE_CHOICES, verbose_name="استان")
+
+
 class Villa(models.Model):
     name = models.CharField(max_length=30, null=False, blank=False, verbose_name='نام ملک')
     villa_owner = models.ForeignKey(LandOwner, on_delete=models.CASCADE,
-                                    null=False, blank=False, verbose_name="صاحب ملک")
-    state = models.PositiveIntegerField(choices=STATE_CHOICES, verbose_name="استان")
+                                    null=False, blank=False,related_name='villas', verbose_name="صاحب ملک")
+    state = models.ForeignKey(State, on_delete=models.CASCADE, null=False, blank=False,related_name= 'villas', verbose_name="استان")
     city = models.CharField(max_length=32, null=False, blank=False, verbose_name="شهر")
     region = models.CharField(max_length=32, null=False, blank=False, verbose_name="منطقه")
     address = models.CharField(max_length=255, null=False, blank=False, verbose_name="آدرس")
