@@ -20,12 +20,12 @@ class Tenant(models.Model):
     updated_at = models.DateTimeField(auto_now_add=True, null=True, blank=True, verbose_name="زمان آخرین به روزرسانی")
     profile_image = models.ImageField(upload_to=profile_image_pattern, blank=True)
 
-    USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['email', 'username', 'password']
+    # USERNAME_FIELD = 'email'
+    # REQUIRED_FIELDS = ['email']
 
     class Meta:
         verbose_name = 'مشتری'
         verbose_name_plural = 'مشتری‌ها'
 
     def __str__(self):
-        return self.user.username
+        return self.user.__str__()

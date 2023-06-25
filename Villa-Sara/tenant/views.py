@@ -8,4 +8,4 @@ class TenantViewSet(ModelViewSet):
     queryset = Tenant.objects.all()
     serializer_class = TenantSerializer
     ordering_fields = '__all__'
-    permission_classes = [IsAuthenticated]
+    # permission_classes = [IsAuthenticated]

@@ -1,7 +1,8 @@
 from django.db import models
 from landowner.models import LandOwner
-from Utilities.constants import STATE_CHOICES
+from utilities.constants import STATE_CHOICES
 from dynamic_filenames import FilePattern
+from core.models import User
 
 image_upload_pattern = FilePattern(filename_pattern='images/{model_name:.30}/{uuid:base32}{ext}')
 video_upload_pattern = FilePattern(filename_pattern='videos/{model_name:.30}/{uuid:base32}{ext}')
@@ -9,14 +10,17 @@ video_upload_pattern = FilePattern(filename_pattern='videos/{model_name:.30}/{uu
 
 class Villa(models.Model):
     name = models.CharField(max_length=30, null=False, blank=False, verbose_name='نام ملک')
-    villa_owner = models.ForeignKey(LandOwner, on_delete=models.CASCADE,
+    villa_owner = models.ForeignKey(User, on_delete=models.CASCADE,
                                     null=False, blank=False, verbose_name="صاحب ملک")
+    villa_images = []
     state = models.PositiveIntegerField(choices=STATE_CHOICES, verbose_name="استان")
     city = models.CharField(max_length=32, null=False, blank=False, verbose_name="شهر")
     region = models.CharField(max_length=32, null=False, blank=False, verbose_name="منطقه")
     address = models.CharField(max_length=255, null=False, blank=False, verbose_name="آدرس")
     description = models.TextField(max_length=1024, null=False, blank=False, verbose_name="توضیحات")
     price_per_night = models.DecimalField(max_digits=10, decimal_places=0, verbose_name="قیمت به ازای هرشب")
+    start_date = models.DateField(null=False, blank=False, verbose_name="تاریخ شروع بازه اجاره")
+    end_date = models.DateField(null=False, blank=False, verbose_name="تاریخ پایان بازه اجاره")
     created_at = models.DateTimeField(auto_now=True, null=True, blank=True, verbose_name="زمان ثبت")
     updated_at = models.DateTimeField(auto_now_add=True, null=True, blank=True, verbose_name="زمان آخرین به روزرسانی")
 
@@ -45,11 +49,11 @@ class VillaMedia(models.Model):
 class RentalPeriod(models.Model):
     start_date = models.DateField(null=False, blank=False, verbose_name="تاریخ شروع اجاره")
     end_date = models.DateField(null=False, blank=False, verbose_name="تاریخ پایان اجاره")
-
     villa = models.ForeignKey(Villa, on_delete=models.CASCADE, null=False, blank=False, verbose_name="ملک")
 
     class Meta:
         verbose_name = 'بازه زمانی اجاره'
         verbose_name_plural = 'بازه های زمانی اجاره'
+
     def __str__(self):
         return self.villa.name
