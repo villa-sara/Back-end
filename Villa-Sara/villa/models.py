@@ -9,12 +9,16 @@ video_upload_pattern = FilePattern(filename_pattern='videos/{model_name:.30}/{uu
 
 class Villa(models.Model):
     name = models.CharField(max_length=30, null=False, blank=False, verbose_name='نام ملک')
+
     villa_owner = models.ForeignKey(LandOwner, on_delete=models.CASCADE,
                                     null=False, blank=False, verbose_name="صاحب ملک")
+
+    villa_images = []
     state = models.PositiveIntegerField(choices=STATE_CHOICES, verbose_name="استان")
     city = models.CharField(max_length=32, null=False, blank=False, verbose_name="شهر")
     region = models.CharField(max_length=32, null=False, blank=False, verbose_name="منطقه")
     address = models.CharField(max_length=255, null=False, blank=False, verbose_name="آدرس")
+
     description = models.TextField(max_length=1024, null=False, blank=False, verbose_name="توضیحات")
     price_per_night = models.DecimalField(max_digits=10, decimal_places=0, verbose_name="قیمت به ازای هرشب")
 
@@ -33,7 +37,7 @@ class Villa(models.Model):
 
 
 class VillaMedia(models.Model):
-    villa = models.ForeignKey(Villa, on_delete=models.CASCADE, null=False, blank=False, verbose_name='ملک')
+    # villa = models.ForeignKey(Villa, on_delete=models.CASCADE, null=False, blank=False, verbose_name='ملک')
     villa_image = models.ImageField(upload_to=image_upload_pattern, blank=True, verbose_name='تصویر ملک')
     villa_image_txt = models.TextField(blank=True, verbose_name="تصویر ملک")
     villa_video = models.FileField(upload_to=video_upload_pattern, blank=True, verbose_name='فیلم ملک')
