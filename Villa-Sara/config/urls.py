@@ -45,5 +45,6 @@ urlpatterns = [
     # path('auth/', include('djoser.urls.jwt')),
     path('', include(router.urls)),
     path('', include(('core.urls', 'core'), namespace='users')),
+
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
