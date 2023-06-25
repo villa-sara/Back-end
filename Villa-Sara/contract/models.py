@@ -16,6 +16,8 @@ class Contract(models.Model):
     #                                 null=False, blank=False, verbose_name="بازه زمانی")
     total_price = models.DecimalField(max_digits=16, decimal_places=4, verbose_name="قیمت کل")
 
+    people_count = models.PositiveIntegerField(verbose_name="تعداد ساکنین")
+
     # is_confirmed_by_landowner = models.BooleanField(default=False)
     # is_confirmed_by_tenant = models.BooleanField(default=False)
 
