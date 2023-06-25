@@ -17,8 +17,8 @@ class Contract(models.Model):
     landowner_phone_number = models.CharField(max_length=15, null=False, blank=False, unique=True,
                                               verbose_name="تلفن همراه مالک")
     people_count = models.PositiveIntegerField(verbose_name="تعداد ساکنین")
-    # is_confirmed_by_landowner = models.BooleanField(default=False)
-    # is_confirmed_by_tenant = models.BooleanField(default=False)
+    is_confirmed_by_landowner = models.BooleanField(default=False)
+    is_confirmed_by_tenant = models.BooleanField(default=False)
 
     start_date = models.DateField(null=False, blank=False, verbose_name="تاریخ شروع اجاره")
     end_date = models.DateField(null=False, blank=False, verbose_name="تاریخ پایان اجاره")
