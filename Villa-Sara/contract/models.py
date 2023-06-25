@@ -21,8 +21,8 @@ class Contract(models.Model):
     # is_confirmed_by_landowner = models.BooleanField(default=False)
     # is_confirmed_by_tenant = models.BooleanField(default=False)
 
-    # start_date = models.DateField(null=False, blank=False, verbose_name="تاریخ شروع اجاره")
-    # end_date = models.DateField(null=False, blank=False, verbose_name="تاریخ پایان اجاره")
+    start_date = models.DateField(null=False, blank=False, verbose_name="تاریخ شروع اجاره")
+    end_date = models.DateField(null=False, blank=False, verbose_name="تاریخ پایان اجاره")
 
     created_at = models.DateTimeField(auto_now=True, null=True, blank=True, verbose_name="زمان ثبت")
     updated_at = models.DateTimeField(auto_now_add=True, null=True, blank=True, verbose_name="زمان آخرین به روزرسانی")
