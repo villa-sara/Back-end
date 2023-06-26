@@ -18,7 +18,7 @@ class User(AbstractUser):
     updated_at = models.DateTimeField(auto_now_add=True, null=True, blank=True, verbose_name="زمان آخرین به روزرسانی")
     # profile_image = models.ImageField(upload_to=profile_image_pattern, blank=True)
     # REQUIRED_FIELDS = ['phone_number']
-    image = []
+    image = models.TextField(blank=True, verbose_name="تصویر(کارت ملی)")
     role = models.CharField(max_length=20, choices=ROLES, null=True, verbose_name='نقش')
     # USERNAME_FIELD = 'phone_number'
 

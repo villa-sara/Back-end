@@ -68,6 +68,7 @@ CORS_ALLOW_HEADERS = [
 CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOW_METHODS = ["GET", "PUT", "POST", "DELETE", "PATCH", "OPTIONS"]
+CORS_ALLOWED_ORIGINS = ["*"]
 # access-control-allow-credentials: true
 # access-control-allow-headers: DNT,Keep-Alive,User-Agent,X-Requested-With,
 # If-Modified-Since,Cache-Control,Content-Type,Range,Authorization
@@ -88,7 +89,6 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = "config.urls"
-CORS_ALLOWED_ORIGINS = ["*"]
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",

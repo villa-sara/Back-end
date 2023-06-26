@@ -11,7 +11,9 @@ class Villa(models.Model):
     name = models.CharField(max_length=30, null=False, blank=False, verbose_name='نام ملک')
     villa_owner = models.ForeignKey(User, on_delete=models.CASCADE,
                                     null=False, blank=False, verbose_name="صاحب ملک")
-    villa_images = []
+    villa_image1 = models.TextField(blank=True, verbose_name="تصویر یک(اختیاری)")
+    villa_image2 = models.TextField(blank=True, verbose_name="تصویر یک(اختیاری)")
+    villa_image3 = models.TextField(blank=True, verbose_name="تصویر یک(اختیاری)")
     state = models.PositiveIntegerField(choices=STATE_CHOICES, verbose_name="استان")
     city = models.CharField(max_length=32, null=False, blank=False, verbose_name="شهر")
     region = models.CharField(max_length=32, null=False, blank=False, verbose_name="منطقه")
