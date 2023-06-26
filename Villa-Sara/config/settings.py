@@ -32,7 +32,7 @@ INSTALLED_APPS = [
     'tenant',
     'contract',
     'core',
-
+    'corsheaders',
     'rest_framework',
     'rest_framework.authtoken',
     # 'dj_rest_auth',
@@ -44,6 +44,35 @@ INSTALLED_APPS = [
     'rest_framework_swagger',
     # 'djoser',
 ]
+CORS_ALLOW_HEADERS = [
+    'accept',
+    'accept-encoding',
+    'authorization',
+    'content-type',
+    'dnt',
+    'origin',
+    'user-agent',
+    'x-csrftoken',
+    'x-requested-with',
+
+    'DNT',
+    'Keep-Alive',
+    'User-Agent',
+    'X-Requested-With',
+    'If-Modified-Since',
+    'Cache-Control',
+    'Content-Type',
+    'Range',
+    'Authorization',
+]
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOW_METHODS = ["GET", "PUT", "POST", "DELETE", "PATCH", "OPTIONS"]
+# access-control-allow-credentials: true
+# access-control-allow-headers: DNT,Keep-Alive,User-Agent,X-Requested-With,
+# If-Modified-Since,Cache-Control,Content-Type,Range,Authorization
+# access-control-allow-methods: GET,PUT,POST,DELETE,PATCH,OPTIONS
+# access-control-allow-origin: *
 
 MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
@@ -55,6 +84,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = "config.urls"
