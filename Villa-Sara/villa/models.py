@@ -1,5 +1,5 @@
 from django.db import models
-from utilities.constants import STATE_CHOICES
+from Utilities.constants import STATE_CHOICES
 from dynamic_filenames import FilePattern
 from core.models import User
 
